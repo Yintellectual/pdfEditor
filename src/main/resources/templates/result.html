@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>输入结果</h1>
+    <p th:text="'姓名: ' + ${contractor.name}" />
+    <p th:text="'电话: ' + ${contractor.phone}" />
+    <p th:text="'微信: ' + ${contractor.wechat}" />
+    <a href="/new_contractor">继续添加</a>
+</body>
+</html>
