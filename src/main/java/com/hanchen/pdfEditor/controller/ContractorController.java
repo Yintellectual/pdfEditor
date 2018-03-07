@@ -50,7 +50,7 @@ public class ContractorController {
 	public ResponseEntity<byte[]> getPDF(@PathVariable(value = "phone") String phone) throws IOException {
 		// retrieve contents of "C:/tmp/report.pdf" that were written in
 		// showHelp
-		Path pdfPath = Paths.get("c:/", "temp", phone);
+		Path pdfPath = Paths.get("~/", "temp", phone);
 		byte[] contents = Files.readAllBytes(pdfPath);
 
 		HttpHeaders headers = new HttpHeaders();
