@@ -72,6 +72,7 @@ public class PdfGenaratorUtil {
 		output.setReadable(true, false);
 		output.setExecutable(true, false);
 		output.setWritable(true, false);
+		System.out.println(outputFile);
         PdfStamper stamper = new PdfStamper(reader,
                 new FileOutputStream(output)); // output PDF
         
