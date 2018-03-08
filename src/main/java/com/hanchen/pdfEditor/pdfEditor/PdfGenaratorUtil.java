@@ -67,7 +67,7 @@ public class PdfGenaratorUtil {
 		
 		String outputFile = "./temp/"+contractor.getPhone()+".pdf";
 		File output= new File(outputFile);
-		//output.getParentFile().mkdirs();
+		output.getParentFile().mkdirs();
 		if(output.createNewFile() ==false){
 			System.out.println("creation failed!!!");
 		} // if file already exists will do nothing 
