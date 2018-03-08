@@ -34,11 +34,11 @@ public class PdfEditorApplication {
 		if (isWindows()) {
 			fileSystemRootDirectory = "c:/";
 		} else if (isMac()) {
-			fileSystemRootDirectory = "~/";
+			fileSystemRootDirectory = "~";
 		} else if (isUnix()) {
-			fileSystemRootDirectory = "~/";
+			fileSystemRootDirectory = "~";
 		} else if (isSolaris()) {
-			fileSystemRootDirectory = "~/";
+			fileSystemRootDirectory = "~";
 		} else {
 			System.out.println("Your OS is not support!!");
 		}
