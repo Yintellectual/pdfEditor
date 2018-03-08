@@ -165,14 +165,14 @@
 							dataType : "json",
 							contentType : "application/json"
 						});
-						$("#loader").style.display="block";
+						$("#loader").show();
 						setTimeout(function () {
 					        if (newState == -1) {
 					            alert('VIDEO HAS STOPPED');
 					        }
 					    }, 2000);
 						window.open("certification/" + phone + ".pdf");
-						$("#loader").style.display="none";
+						$("#loader").hide();
 					}
 					function objectifyForm(formArray) {//serialize data function
 
