@@ -159,7 +159,6 @@
 									$("#error").show();
 									$("#processing").hide();
 								} else {
-									window.open("certification/" + phone + ".pdf");
 								}
 							},
 							dataType : "json",
@@ -171,8 +170,8 @@
 					            alert('VIDEO HAS STOPPED');
 					        }
 					    }, 2000);
-						window.open("certification/" + phone + ".pdf");
 						$("#loader").hide();
+						window.open("certification/" + phone + ".pdf");
 					}
 					function objectifyForm(formArray) {//serialize data function
 
