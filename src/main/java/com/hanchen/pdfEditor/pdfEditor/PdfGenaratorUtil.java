@@ -60,8 +60,12 @@ public class PdfGenaratorUtil {
 
 	public void editPdf(String templateName, Contractor contractor) throws Exception {
 		PdfReader reader = new PdfReader(getFileFromResource("templates/pdf/"+templateName).getAbsolutePath());
+		String outputFile = "~/temp/"+contractor.getPhone()+".pdf";
+		File output= new File(outputFile);
+		output.createNewFile(); // if file already exists will do nothing 
+		
         PdfStamper stamper = new PdfStamper(reader,
-                new FileOutputStream("~/temp/"+contractor.getPhone()+".pdf")); // output PDF
+                new FileOutputStream(output)); // output PDF
         
         //loop on pages (1-based)
         for (int i=1; i<=reader.getNumberOfPages(); i++){
