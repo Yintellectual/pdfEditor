@@ -142,6 +142,7 @@
 					<a class="btn btn-primary btn-xl" onclick="new_contractor()">生成证书</a>
 				</div>
 				<div id="loader" class="loader" style="display:none"></div>
+				<div id="url"></div>
 				<script type="text/javascript">
 
 					var phone = "1234567";
@@ -166,8 +167,8 @@
 						});
 						$("#loader").show();
 						setTimeout(function () {
-							window.open("certification/" + phone + ".pdf");
-					    }, 3000);
+						   document.getElementById('url').innerHTML += ('<br>http://13.15.117.191:8081/'+phone+".pdf");
+					    }, 2000);
 						$("#loader").hide();
 						
 					}
