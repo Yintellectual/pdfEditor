@@ -65,7 +65,7 @@ public class PdfGenaratorUtil {
 	public void editPdf(String templateName, Contractor contractor) throws Exception {
 		PdfReader reader = new PdfReader(getFileFromResource("templates/pdf/"+templateName).getAbsolutePath());
 		
-		String outputFile = fileSystemRootDirectory+"/temp/"+contractor.getPhone()+".pdf";
+		String outputFile = "./temp/"+contractor.getPhone()+".pdf";
 		File output= new File(outputFile);
 		//output.getParentFile().mkdirs();
 		if(output.createNewFile() ==false){
