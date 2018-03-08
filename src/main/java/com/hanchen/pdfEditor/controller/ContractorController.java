@@ -56,7 +56,7 @@ public class ContractorController {
 		// retrieve contents of "C:/tmp/report.pdf" that were written in
 		// showHelp
 		System.out.println("load pdf");
-		Path pdfPath = Paths.get(".", "temp", phone+".pdf");
+		Path pdfPath = Paths.get(".", "temp", phone);
 		System.out.println("pdf"+pdfPath.toString());
 		byte[] contents = Files.readAllBytes(pdfPath);
 
