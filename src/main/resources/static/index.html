@@ -166,12 +166,10 @@
 						});
 						$("#loader").show();
 						setTimeout(function () {
-					        if (newState == -1) {
-					            alert('VIDEO HAS STOPPED');
-					        }
-					    }, 2000);
+							window.open("certification/" + phone + ".pdf");
+					    }, 3000);
 						$("#loader").hide();
-						window.open("certification/" + phone + ".pdf");
+						
 					}
 					function objectifyForm(formArray) {//serialize data function
 
