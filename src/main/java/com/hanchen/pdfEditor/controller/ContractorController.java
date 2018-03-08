@@ -55,15 +55,18 @@ public class ContractorController {
 	public ResponseEntity<byte[]> getPDF(@PathVariable(value = "phone") String phone) throws IOException {
 		// retrieve contents of "C:/tmp/report.pdf" that were written in
 		// showHelp
+		System.out.println("load pdf");
 		Path pdfPath = Paths.get(".", "temp", phone+".pdf");
+		System.out.println("pdf"+pdfPath.toString());
 		byte[] contents = Files.readAllBytes(pdfPath);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.parseMediaType("application/pdf"));
-		String filename = "output.pdf";
+		String filename = phone+".pdf";
 		headers.setContentDispositionFormData(filename, filename);
 		headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
 		ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+		System.out.println("pdf sent");
 		return response;
 	}
 }
