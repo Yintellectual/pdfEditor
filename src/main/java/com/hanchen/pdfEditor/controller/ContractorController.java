@@ -43,7 +43,6 @@ public class ContractorController {
 	public String process(@RequestBody Contractor contractor) throws Exception {
 		System.out.println(contractor);
 		pdfGenaratorUtil.editPdf("sample.pdf", contractor);
-		Thread.sleep(1000);
 		return "success";
 	}
 

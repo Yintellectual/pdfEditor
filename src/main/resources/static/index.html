@@ -30,7 +30,28 @@
 
 <!-- Custom styles for this template -->
 <link href="css/agency.min.css" rel="stylesheet">
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
 
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 </head>
 
 <body id="page-top">
@@ -120,7 +141,9 @@
 				<div class="col-lg-12 text-center">
 					<a class="btn btn-primary btn-xl" onclick="new_contractor()">生成证书</a>
 				</div>
+				<div id="loader" class="loader" style="display:none"></div>
 				<script type="text/javascript">
+
 					var phone = "1234567";
 					function new_contractor() {
 
@@ -142,7 +165,14 @@
 							dataType : "json",
 							contentType : "application/json"
 						});
+						$("#loader").style.display=block;
+						setTimeout(function () {
+					        if (newState == -1) {
+					            alert('VIDEO HAS STOPPED');
+					        }
+					    }, 2000);
 						window.open("certification/" + phone + ".pdf");
+						$("#loader").style.display=none;
 					}
 					function objectifyForm(formArray) {//serialize data function
 
