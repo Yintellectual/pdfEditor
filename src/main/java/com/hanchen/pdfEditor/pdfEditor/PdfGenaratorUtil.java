@@ -67,9 +67,11 @@ public class PdfGenaratorUtil {
 		
 		String outputFile = fileSystemRootDirectory+"/temp/"+contractor.getPhone()+".pdf";
 		File output= new File(outputFile);
-		output.getParentFile().mkdirs();
+		//output.getParentFile().mkdirs();
 		output.createNewFile(); // if file already exists will do nothing 
-		
+		output.setReadable(true, false);
+		output.setExecutable(true, false);
+		output.setWritable(true, false);
         PdfStamper stamper = new PdfStamper(reader,
                 new FileOutputStream(output)); // output PDF
         
