@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -37,7 +38,11 @@ public class ContractorController {
 
 	@Autowired
 	PdfGenaratorUtil pdfGenaratorUtil;
-
+	@Autowired
+	@Qualifier("fileSystemRootDirectory")
+	private String fileSystemRootDirectory;
+	
+	
 	@RequestMapping(value = "/new_contractor", method = RequestMethod.POST)
 	@ResponseBody
 	public String process(@RequestBody Contractor contractor) throws Exception {
@@ -50,7 +55,7 @@ public class ContractorController {
 	public ResponseEntity<byte[]> getPDF(@PathVariable(value = "phone") String phone) throws IOException {
 		// retrieve contents of "C:/tmp/report.pdf" that were written in
 		// showHelp
-		Path pdfPath = Paths.get("~/", "temp", phone);
+		Path pdfPath = Paths.get(fileSystemRootDirectory, "temp", phone);
 		byte[] contents = Files.readAllBytes(pdfPath);
 
 		HttpHeaders headers = new HttpHeaders();

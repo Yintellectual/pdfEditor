@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -23,6 +24,9 @@ import com.itextpdf.text.pdf.*;
 public class PdfGenaratorUtil {
 	@Autowired
 	private TemplateEngine templateEngine;
+	@Autowired
+	@Qualifier("fileSystemRootDirectory")
+	private String fileSystemRootDirectory;
 
 	public void createPdf(String templateName, Map<String, String> map) throws Exception {
 		IContext ctx = new Context();
@@ -60,7 +64,8 @@ public class PdfGenaratorUtil {
 
 	public void editPdf(String templateName, Contractor contractor) throws Exception {
 		PdfReader reader = new PdfReader(getFileFromResource("templates/pdf/"+templateName).getAbsolutePath());
-		String outputFile = "~/temp/"+contractor.getPhone()+".pdf";
+		
+		String outputFile = fileSystemRootDirectory+"/temp/"+contractor.getPhone()+".pdf";
 		File output= new File(outputFile);
 		output.getParentFile().mkdirs();
 		output.createNewFile(); // if file already exists will do nothing 
